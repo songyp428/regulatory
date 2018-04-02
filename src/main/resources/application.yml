@@ -1,0 +1,11 @@
+spring:
+  datasource:
+     driverClassName: com.mysql.jdbc.Driver
+     host: localhost
+     port: 3306
+     database: regulatory
+     url: jdbc:mysql://localhost:3306/regulatory
+     username: root
+     password: 123
+     initialize: false
+     continue-on-error: true
