@@ -9,9 +9,9 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Result<T> {
-    String code;
-    String message;
-    T data;
-    Integer totalRecords;
+public class VehicleData {
+    String bikeId;
+    String enterprise;
+    long deliveryTime;
+    String cardType;
 }
