@@ -29,7 +29,7 @@ public class TestController {
             Test test
     ) {
         Integer count = testService.addTest(test);
-        return Result.<Integer>builder().code("200").msg("成功").data(count).build();
+        return Result.<Integer>builder().code(200).message("成功").data(count).build();
     }
 
     @RequestMapping("/listTest")
@@ -39,7 +39,7 @@ public class TestController {
                     String name
     ) {
         List<Test> list = testService.listTest();
-        return Result.<List<Test>>builder().code("200").msg("成功").data(list).build();
+        return Result.<List<Test>>builder().code(200).message("成功").data(list).build();
     }
 
     @RequestMapping("/updateTest")
@@ -49,7 +49,7 @@ public class TestController {
             Test test
     ) {
         Integer count = testService.updateTest(test);
-        return Result.<Integer>builder().code("200").msg("成功").data(count).build();
+        return Result.<Integer>builder().code(200).message("成功").data(count).build();
     }
 
     @RequestMapping("/deleteTest")
@@ -59,6 +59,6 @@ public class TestController {
             String id
     ) {
         Integer count = testService.deleteTest(id);
-        return Result.<Integer>builder().code("200").msg("成功").data(count).build();
+        return Result.<Integer>builder().code(200).message("成功").data(count).build();
     }
 }

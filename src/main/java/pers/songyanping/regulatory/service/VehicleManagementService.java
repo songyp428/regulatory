@@ -6,10 +6,8 @@ import pers.songyanping.regulatory.dao.VehicleManagementDao;
 import pers.songyanping.regulatory.model.VehicleData;
 
 import java.util.List;
-
 @Service
-public class VehicleManagement {
-
+public class VehicleManagementService {
     @Autowired
     VehicleManagementDao vehicleManagementDao;
 
@@ -17,15 +15,16 @@ public class VehicleManagement {
         return vehicleManagementDao.insert(test);
     }
 
-    public List<Test> queryVehicleList(){
+    public List<VehicleData> queryVehicleList(){
         return vehicleManagementDao.list();
     }
 
-    public Integer deleteTest(String bikeId){
+    public Integer deleteVehicle(String bikeId){
         return vehicleManagementDao.delete(bikeId);
     }
 
-    public Integer updateTest(VehicleData test){
+    public Integer updateVehicle(VehicleData test){
         return vehicleManagementDao.update(test);
     }
 }
+

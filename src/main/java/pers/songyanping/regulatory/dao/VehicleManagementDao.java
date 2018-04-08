@@ -14,7 +14,7 @@ public interface VehicleManagementDao {
     static final String select_column="bikeId,enterprise,cardType,deliveryTime";
 
     @Select(" SELECT " + select_column + " from "+ table)
-    List<Test> list();
+    List<VehicleData> list();
 
     @Insert(" INSERT INTO " + table + " (" +
             "bikeId,enterprise,cardType,deliveryTime" +
@@ -28,11 +28,12 @@ public interface VehicleManagementDao {
             + "enterprise=" + "#{enterprise},"
             + "cardType=" + "#{cardType},"
             + "deliveryTime=" + "#{deliveryTime}"
-            " where bikeId = #{bikeId}")
+            + " where bikeId = #{bikeId}")
     Integer update(VehicleData test);
 
     @Delete(" delete from " + table +
             " where bikeId = #{bikeId}")
     Integer delete(String bikeId);
+
 }
 
