@@ -26,5 +26,10 @@ public class VehicleManagementService {
     public Integer updateVehicle(VehicleData test){
         return vehicleManagementDao.update(test);
     }
+
+    public VehicleData getVehicleById(String bikeId){
+        return vehicleManagementDao.getOne(bikeId);
+    }
+
 }
 

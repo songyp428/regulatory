@@ -30,7 +30,6 @@ public class VehicleManagementController {
             e.printStackTrace();
             return Result.<List<VehicleData>>builder().code(201).message("失败").data(list).totalRecords(0).build();
         }
-
     }
 
     @RequestMapping("/addVehicle")
@@ -40,6 +39,13 @@ public class VehicleManagementController {
     ) {
         Integer count = null;
         try {
+            System.out.println(test);
+            List<VehicleData> list = vehicleManagementService.queryVehicleList();
+            for(VehicleData item : list) {
+                if (test.getBikeId().equals(item.getBikeId())) {
+                    return Result.<Integer>builder().code(202).message("已经存在这个单车编号，不能重复插入！").data(count).totalRecords(0).build();
+                }
+            }
             count = vehicleManagementService.addVehicle(test);
             return Result.<Integer>builder().code(200).message("成功").data(count).totalRecords(0).build();
         } catch (Exception e) {
@@ -78,6 +84,19 @@ public class VehicleManagementController {
         }
     }
 
+    @RequestMapping("/getVehicleById")
+    @ResponseBody
+    public Result<VehicleData> getVehicleById(String bikeId) {
+        VehicleData data = null;
+        try {
+            data = vehicleManagementService.getVehicleById(bikeId);
+
+            return Result.<VehicleData>builder().code(200).message("成功").data(data).totalRecords(1).build();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return Result.<VehicleData>builder().code(201).message("失败").data(data).totalRecords(1).build();
+        }
+    }
 }
 
 
