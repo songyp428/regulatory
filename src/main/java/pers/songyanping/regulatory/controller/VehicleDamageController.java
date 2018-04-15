@@ -22,32 +22,33 @@ public class VehicleDamageController {
 
     @RequestMapping("/queryVehicleDamage")
     @ResponseBody
-    public Result<List<VehicleData>> queryVehicleMamageList() {
+    public Result<List<VehicleDamageData>> queryVehicleDamageList() {
         List<VehicleDamageData> list = null;
         try {
-            list = VehicleDamageService.queryVehicleMamageList();
+            list = VehicleDamageService.queryVehicleDamageList();
+            System.out.println(list);
             return Result.<List<VehicleDamageData>>builder().code(200).message("成功").data(list).totalRecords(list.size()).build();
         } catch (Exception e) {
             e.printStackTrace();
-            return Result.<List<VehicleData>>builder().code(201).message("失败").data(list).totalRecords(0).build();
+            return Result.<List<VehicleDamageData>>builder().code(201).message("失败").data(list).totalRecords(0).build();
         }
     }
 
     @RequestMapping("/addVehicleDamage")
     @ResponseBody
     public Result<Integer> addVehicleDamage(
-            @RequestBody VehicleData test
+            @RequestBody VehicleDamageData test
     ) {
         Integer count = null;
         try {
             System.out.println(test);
-            List<VehicleDamageData> list = vehicleManagementService.queryVehicleMamageList();
-            for(VehicleData item : list) {
+            List<VehicleDamageData> list = VehicleDamageService.queryVehicleDamageList();
+            for(VehicleDamageData item : list) {
                 if (test.getBikeId().equals(item.getBikeId())) {
                     return Result.<Integer>builder().code(202).message("已经存在这个单车编号，不能重复插入！").data(count).totalRecords(0).build();
                 }
             }
-            count = vehicleManagementService.addVehicleDamage(test);
+            count = VehicleDamageService.addVehicleDamage(test);
             return Result.<Integer>builder().code(200).message("成功").data(count).totalRecords(0).build();
         } catch (Exception e) {
             e.printStackTrace();
@@ -62,7 +63,7 @@ public class VehicleDamageController {
     ) {
         Integer count = null;
         try {
-            count = vehicleManagementService.updateVehicleMamage(test);
+            count = VehicleDamageService.updateVehicleMamage(test);
             return Result.<Integer>builder().code(200).message("成功").data(count).totalRecords(0).build();
         } catch (Exception e) {
             e.printStackTrace();
@@ -77,7 +78,7 @@ public class VehicleDamageController {
     ) {
         Integer count = null;
         try {
-            count = vehicleManagementService.deleteVehicleMamage(bikeId);
+            count = VehicleDamageService.deleteVehicleMamage(bikeId);
             return Result.<Integer>builder().code(200).message("成功").data(count).totalRecords(0).build();
         } catch (Exception e) {
             e.printStackTrace();
@@ -87,10 +88,10 @@ public class VehicleDamageController {
 
     @RequestMapping("/getVehicleDamageById")
     @ResponseBody
-    public Result<VehicleData> getVehicleMamageById(String bikeId) {
-        VehicleData data = null;
+    public Result<VehicleDamageData> getVehicleMamageById(String bikeId) {
+        VehicleDamageData data = null;
         try {
-            data = vehicleManagementService.getVehicleMamageById(bikeId);
+            data = VehicleDamageService.getVehicleMamageById(bikeId);
 
             return Result.<VehicleDamageData>builder().code(200).message("成功").data(data).totalRecords(1).build();
         } catch (Exception e) {

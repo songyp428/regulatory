@@ -13,25 +13,25 @@ public interface VehicleDamageDao {
     static final String select_column="bikeId,description,credit,isUsing";
 
     @Select(" SELECT " + select_column + " from "+ table)
-    List<VehicleData> list();
+    List<VehicleDamageData> list();
 
     @Select(" SELECT " + select_column + " from "+ table + " where bikeId = #{bikeId}")
-    VehicleData getOne(String bikeId);
+    VehicleDamageData getOne(String bikeId);
 
     @Insert(" INSERT INTO " + table + " (" +
-            "bikeId,enterprise,cardType,deliveryTime" +
+            "bikeId,description,credit,isUsing" +
             ")" +
             " VALUES (" +
             "#{bikeId},#{description},#{credit},#{isUsing}" +
             ")")
-    Integer insert(VehicleData test);
+    Integer insert(VehicleDamageData test);
 
     @Update(" update " + table + " set "
             + "description=" + "#{description},"
             + "credit=" + "#{credit},"
             + "isUsing=" + "#{isUsing}"
             + " where bikeId = #{bikeId}")
-    Integer update(VehicleData test);
+    Integer update(VehicleDamageData test);
 
     @Delete(" delete from " + table +
             " where bikeId = #{bikeId}")
