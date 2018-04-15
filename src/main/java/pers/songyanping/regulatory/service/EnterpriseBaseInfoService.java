@@ -28,11 +28,11 @@ public class EnterpriseBaseInfoService {
         return enterpriseBaseInfoDao.update(test);
     }
 
-    public VehicleData queryEnterpriseBaseInfoById(String id){
+    public EnterpriseBaseInfoData queryEnterpriseBaseInfoById(String id){
         return enterpriseBaseInfoDao.getOne(id);
     }
 
-    public VehicleData queryEnterpriseBaseInfoByName(String name){
+    public EnterpriseBaseInfoData queryEnterpriseBaseInfoByName(String name){
         return enterpriseBaseInfoDao.queryByName(name);
     }
 }

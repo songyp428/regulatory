@@ -18,14 +18,14 @@ import java.util.List;
 @RequestMapping("/regulatory")
 public class EnterpriseViolationController {
     @Autowired
-    private VehicleManagementService vehicleManagementService;
+    private EnterpriseViolationService enterpriseViolationService;
 
     @RequestMapping("/queryCorporateCreditList")
     @ResponseBody
     public Result<List<EnterpriseViolationData>> queryEnterpriseViolationList() {
-        List<VehicleData> list = null;
+        List<EnterpriseViolationData> list = null;
         try {
-            list = vehicleManagementService.queryEnterpriseViolationList();
+            list = enterpriseViolationService.queryEnterpriseViolationList();
             return Result.<List<EnterpriseViolationData>>builder().code(200).message("成功").data(list).totalRecords(list.size()).build();
         } catch (Exception e) {
             e.printStackTrace();
@@ -40,10 +40,10 @@ public class EnterpriseViolationController {
     ) {
         Integer count = null;
         try {
-            System.out.println(test.getGrade())
-            System.out.println(test.getName())
+            System.out.println(test.getGrade());
+            System.out.println(test.getName());
 
-            count = vehicleManagementService.addEnterpriseViolation(test);
+            count = enterpriseViolationService.addEnterpriseViolation(test);
             return Result.<Integer>builder().code(200).message("成功").data(count).totalRecords(0).build();
         } catch (Exception e) {
             e.printStackTrace();
@@ -58,10 +58,10 @@ public class EnterpriseViolationController {
     ) {
         Integer count = null;
         try {
-            System.out.println(test.getGrade())
-            System.out.println(test.getName())
+            System.out.println(test.getGrade());
+            System.out.println(test.getName());
 
-            count = vehicleManagementService.updateEnterpriseViolation(test);
+            count = enterpriseViolationService.updateEnterpriseViolation(test);
             return Result.<Integer>builder().code(200).message("成功").data(count).totalRecords(0).build();
         } catch (Exception e) {
             e.printStackTrace();
@@ -76,7 +76,7 @@ public class EnterpriseViolationController {
     ) {
         Integer count = null;
         try {
-            count = vehicleManagementService.deleteEnterpriseViolation(id);
+            count = enterpriseViolationService.deleteEnterpriseViolation(id);
             return Result.<Integer>builder().code(200).message("成功").data(count).totalRecords(0).build();
         } catch (Exception e) {
             e.printStackTrace();
@@ -87,14 +87,14 @@ public class EnterpriseViolationController {
     @RequestMapping("/queryCorporateCreditById")
     @ResponseBody
     public Result<EnterpriseViolationData> getEnterpriseViolationById(String id) {
-        VehicleData data = null;
+        EnterpriseViolationData data = null;
         try {
-            data = vehicleManagementService.getEnterpriseViolationById(id);
+            data = enterpriseViolationService.getEnterpriseViolationById(id);
 
-            return Result.<VehicleData>builder().code(200).message("成功").data(data).totalRecords(1).build();
+            return Result.<EnterpriseViolationData>builder().code(200).message("成功").data(data).totalRecords(1).build();
         } catch (Exception e) {
             e.printStackTrace();
-            return Result.<VehicleData>builder().code(201).message("失败").data(data).totalRecords(1).build();
+            return Result.<EnterpriseViolationData>builder().code(201).message("失败").data(data).totalRecords(1).build();
         }
     }
 

@@ -15,16 +15,16 @@ public interface EnterpriseBaseInfoDao {
     List<EnterpriseBaseInfoData> list();
 
     @Select(" SELECT " + select_column + " from "+ table + " where id = #{id}")
-    EnterpriseBaseInfoData getOne(string id);
+    EnterpriseBaseInfoData getOne(String id);
 
     @Select(" SELECT " + select_column + " from "+ table + " where name = #{name}")
-    EnterpriseBaseInfoData queryByName(string name);
+    EnterpriseBaseInfoData queryByName(String name);
 
     @Insert(" INSERT INTO " + table + " (" +
             "name,description,createTime,credit" +
             ")" +
             " VALUES (" +
-            "#{name},#{description},#{createTime},100" +
+            "#{name},#{description},#{createTime},#{credit}" +
             ")")
     Integer insert(EnterpriseBaseInfoData test);
 
@@ -32,6 +32,7 @@ public interface EnterpriseBaseInfoDao {
             + "name=" + "#{name},"
             + "description=" + "#{description},"
             + "createTime=" + "#{createTime}"
+            + " where id = #{id}")
     Integer update(EnterpriseBaseInfoData test);
 
     @Delete(" delete from " + table +

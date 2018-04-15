@@ -14,7 +14,7 @@ public class EnterpriseViolationData {
     String name;
     int grade;
     String description;
-    long violateTtime;
+    long violateTime;
 
     public String getId() {
         return id;

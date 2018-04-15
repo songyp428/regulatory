@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 
 public class EnterpriseBaseInfoData {
-    string id;
+    String id;
     String name;
     String description;
     long createTime;

@@ -11,7 +11,7 @@ public interface EnterpriseViolationDao {
     static final String insert_column ="name";
     static final String table = "vehicleViolation";
     static final String table1 = "vehicleBase";
-    static final String select_column="id,name,grade,description,violateTtime";
+    static final String select_column="id,name,grade,description,violateTime";
 
     @Select(" SELECT " + select_column + " from "+ table)
     List<EnterpriseViolationData> list();
@@ -20,18 +20,18 @@ public interface EnterpriseViolationDao {
     EnterpriseViolationData getOne(String id);
 
     @Insert(" INSERT INTO " + table + " (" +
-            "name,grade,description,violateTtime" +
+            "name,grade,description,violateTime" +
             ")" +
             " VALUES (" +
-            "#{name},#{grade},#{description},#{violateTtime}" +
+            "#{name},#{grade},#{description},#{violateTime}" +
             ")")
     Integer insert(EnterpriseViolationData test);
 
     @Update(" update " + table + " set "
             + "name=" + "#{name},"
             + "grade=" + "#{grade},"
-            + "description=" + "#{description}"
-            + "violateTtime=" + "#{violateTtime}"
+            + "description=" + "#{description},"
+            + "violateTime=" + "#{violateTime}"
             + " where id = #{id}")
     Integer update(EnterpriseViolationData test);
 

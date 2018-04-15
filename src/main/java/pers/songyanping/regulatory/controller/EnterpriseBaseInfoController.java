@@ -41,13 +41,13 @@ public class EnterpriseBaseInfoController {
         Integer count = null;
         try {
             System.out.println(test);
-            List<EnterpriseBaseInfoData> list = vehicleManagementService.queryEnterpriseBaseInfoList();
+            List<EnterpriseBaseInfoData> list = enterpriseBaseInfoService.queryEnterpriseBaseInfoList();
             for(EnterpriseBaseInfoData item : list) {
                 if (test.getName().equals(item.getName())) {
                     return Result.<Integer>builder().code(202).message("该企业已经存在，不能重复插入！").data(count).totalRecords(0).build();
                 }
             }
-            count = vehicleManagementService.addEnterpriseBaseInfo(test);
+            count = enterpriseBaseInfoService.addEnterpriseBaseInfo(test);
             return Result.<Integer>builder().code(200).message("成功").data(count).totalRecords(0).build();
         } catch (Exception e) {
             e.printStackTrace();
@@ -62,7 +62,7 @@ public class EnterpriseBaseInfoController {
     ) {
         Integer count = null;
         try {
-            count = vehicleManagementService.updateEnterpriseBaseInfo(test);
+            count = enterpriseBaseInfoService.updateEnterpriseBaseInfo(test);
             return Result.<Integer>builder().code(200).message("成功").data(count).totalRecords(0).build();
         } catch (Exception e) {
             e.printStackTrace();
@@ -77,7 +77,7 @@ public class EnterpriseBaseInfoController {
     ) {
         Integer count = null;
         try {
-            count = vehicleManagementService.deleteEnterpriseBaseInfo(id);
+            count = enterpriseBaseInfoService.deleteEnterpriseBaseInfo(id);
             return Result.<Integer>builder().code(200).message("成功").data(count).totalRecords(0).build();
         } catch (Exception e) {
             e.printStackTrace();
@@ -87,15 +87,15 @@ public class EnterpriseBaseInfoController {
 
     @RequestMapping("/queryaddEnterBaseInfoById")
     @ResponseBody
-    public Result<VehicleData> queryEnterpriseBaseInfoById(String id) {
+    public Result<EnterpriseBaseInfoData> queryEnterpriseBaseInfoById(String id) {
         EnterpriseBaseInfoData data = null;
         try {
-            data = vehicleManagementService.queryEnterpriseBaseInfoById(id);
+            data = enterpriseBaseInfoService.queryEnterpriseBaseInfoById(id);
 
-            return Result.<VehicleData>builder().code(200).message("成功").data(data).totalRecords(1).build();
+            return Result.<EnterpriseBaseInfoData>builder().code(200).message("成功").data(data).totalRecords(1).build();
         } catch (Exception e) {
             e.printStackTrace();
-            return Result.<VehicleData>builder().code(201).message("失败").data(data).totalRecords(1).build();
+            return Result.<EnterpriseBaseInfoData>builder().code(201).message("失败").data(data).totalRecords(1).build();
         }
     }
 }

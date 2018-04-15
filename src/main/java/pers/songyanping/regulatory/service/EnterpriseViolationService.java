@@ -27,7 +27,7 @@ public class EnterpriseViolationService {
         return enterpriseViolationDao.update(test);
     }
 
-    public VehicleData getEnterpriseViolationById(String id){
+    public EnterpriseViolationData getEnterpriseViolationById(String id){
         return enterpriseViolationDao.getOne(id);
     }
 }
