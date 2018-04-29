@@ -11,17 +11,17 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 
 public class EnterpriseBaseInfoData {
-    String id;
+    Integer id;
     String name;
     String description;
     long createTime;
-    int credit;
+    Integer credit;
 
-    public String getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -41,11 +41,11 @@ public class EnterpriseBaseInfoData {
         this.createTime = createTime;
     }
 
-    public int getCredit() {
+    public Integer getCredit() {
         return credit;
     }
 
-    public void setCredit(int grade) {
+    public void setCredit(Integer credit) {
         this.credit = credit;
     }
 }

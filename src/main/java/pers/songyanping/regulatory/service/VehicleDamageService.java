@@ -3,14 +3,13 @@ package pers.songyanping.regulatory.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pers.songyanping.regulatory.dao.VehicleDamageDao;
+import pers.songyanping.regulatory.dao.VehicleDamageDao;
 import pers.songyanping.regulatory.model.VehicleDamageData;
 
 import java.util.List;
 @Service
-
 public class VehicleDamageService {
     @Autowired
-
     VehicleDamageDao vehicleDamageDao;
 
     public Integer addVehicleDamage(VehicleDamageData test){

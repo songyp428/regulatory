@@ -15,7 +15,7 @@ public interface EnterpriseBaseInfoDao {
     List<EnterpriseBaseInfoData> list();
 
     @Select(" SELECT " + select_column + " from "+ table + " where id = #{id}")
-    EnterpriseBaseInfoData getOne(String id);
+    EnterpriseBaseInfoData getOne(Integer id);
 
     @Select(" SELECT " + select_column + " from "+ table + " where name = #{name}")
     EnterpriseBaseInfoData queryByName(String name);
@@ -37,6 +37,6 @@ public interface EnterpriseBaseInfoDao {
 
     @Delete(" delete from " + table +
             " where id = #{id}")
-    Integer delete(String id);
+    Integer delete(Integer id);
 
 }

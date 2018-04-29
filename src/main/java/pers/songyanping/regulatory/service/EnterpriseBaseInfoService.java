@@ -10,8 +10,8 @@ import java.util.List;
 
 public class EnterpriseBaseInfoService {
     @Autowired
-    EnterpriseBaseInfoDao enterpriseBaseInfoDao;
 
+    EnterpriseBaseInfoDao enterpriseBaseInfoDao;
     public Integer addEnterpriseBaseInfo(EnterpriseBaseInfoData test){
         return enterpriseBaseInfoDao.insert(test);
     }
@@ -20,7 +20,7 @@ public class EnterpriseBaseInfoService {
         return enterpriseBaseInfoDao.list();
     }
 
-    public Integer deleteEnterpriseBaseInfo(String id){
+    public Integer deleteEnterpriseBaseInfo(Integer id){
         return enterpriseBaseInfoDao.delete(id);
     }
 
@@ -28,7 +28,7 @@ public class EnterpriseBaseInfoService {
         return enterpriseBaseInfoDao.update(test);
     }
 
-    public EnterpriseBaseInfoData queryEnterpriseBaseInfoById(String id){
+    public EnterpriseBaseInfoData queryEnterpriseBaseInfoById(Integer id){
         return enterpriseBaseInfoDao.getOne(id);
     }
 

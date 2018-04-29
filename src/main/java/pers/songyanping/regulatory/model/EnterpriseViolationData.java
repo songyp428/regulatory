@@ -10,26 +10,22 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class EnterpriseViolationData {
-    String id;
-    String name;
-    int grade;
+    Integer id;
+    Integer enterPriseId;
+    Integer grade;
     String description;
     long violateTime;
 
-    public String getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
+    public Integer getEnterPriseId() {
+        return enterPriseId;
     }
 
     public int getGrade() {

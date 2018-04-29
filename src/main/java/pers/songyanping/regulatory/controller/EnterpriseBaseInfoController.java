@@ -73,7 +73,7 @@ public class EnterpriseBaseInfoController {
     @RequestMapping("/deleteEnterBaseInfo")
     @ResponseBody
     public Result<Integer> deleteEnterpriseBaseInfo(
-            String id
+            Integer id
     ) {
         Integer count = null;
         try {
@@ -87,7 +87,7 @@ public class EnterpriseBaseInfoController {
 
     @RequestMapping("/queryaddEnterBaseInfoById")
     @ResponseBody
-    public Result<EnterpriseBaseInfoData> queryEnterpriseBaseInfoById(String id) {
+    public Result<EnterpriseBaseInfoData> queryEnterpriseBaseInfoById(Integer id) {
         EnterpriseBaseInfoData data = null;
         try {
             data = enterpriseBaseInfoService.queryEnterpriseBaseInfoById(id);
