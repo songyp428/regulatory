@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class VehicleData {
     String bikeId;
-    String enterprise;
+    Integer enterprise;
     long deliveryTime;
     String cardType;
 
@@ -23,11 +23,11 @@ public class VehicleData {
         this.bikeId = bikeId;
     }
 
-    public String getEnterprise() {
+    public Integer getEnterprise() {
         return enterprise;
     }
 
-    public void setEnterprise(String enterprise) {
+    public void setEnterprise(Integer enterprise) {
         this.enterprise = enterprise;
     }
 

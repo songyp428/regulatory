@@ -23,10 +23,7 @@ public class VehicleManagementController {
     @ResponseBody
     public Result<List<VehicleData>> queryVehicleList(HttpServletRequest request, HttpServletResponse response) {
         List<VehicleData> list = null;
-        System.out.println(request);
-        System.out.println("---------");
-        System.out.println(response);
-        response.setStatus(560);
+
         try {
             list = vehicleManagementService.queryVehicleList();
             return Result.<List<VehicleData>>builder().code(200).message("成功").data(list).totalRecords(list.size()).build();
