@@ -9,26 +9,15 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class UserData {
-    Integer uid;
+public class LoginData {
     String userName;
     String password;
-    String email;
-    Integer roleId;
 
-    public Integer getUid() {
-        return this.uid;
-    }
-
-    public String getUserName() {
+    public String getName() {
         return this.userName;
     }
 
     public String getPassword() {
         return this.password;
-    }
-
-    public Integer getRoleId() {
-        return this.roleId;
     }
 }
