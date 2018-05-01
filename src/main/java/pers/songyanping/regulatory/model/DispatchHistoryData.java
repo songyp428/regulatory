@@ -11,6 +11,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class DispatchHistoryData {
     Integer id;
+    Integer enterprise;
     String inputPoint;
     String inputLngLat;
     String outputPoint;

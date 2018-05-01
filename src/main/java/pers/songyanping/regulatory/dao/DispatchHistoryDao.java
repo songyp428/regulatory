@@ -6,9 +6,9 @@ import pers.songyanping.regulatory.model.DispatchHistoryData;
 
 import java.util.List;
 public interface DispatchHistoryDao {
-    static final String insert_column ="inputPoint,inputLngLat,outputPoint,outputLngLat,deliveryTime";
+    static final String insert_column ="enterprise,inputPoint,inputLngLat,outputPoint,outputLngLat,deliveryTime";
     static final String table = "dispatchHistory";
-    static final String select_column="id,inputPoint,inputLngLat,outputPoint,outputLngLat,deliveryTime";
+    static final String select_column="id,enterprise,inputPoint,inputLngLat,outputPoint,outputLngLat,deliveryTime";
 
     @Select(" SELECT " + select_column + " from "+ table)
     List<DispatchHistoryData> list();
@@ -17,14 +17,15 @@ public interface DispatchHistoryDao {
     DispatchHistoryData getOne(Integer id);
 
     @Insert(" INSERT INTO " + table + " (" +
-            "inputPoint,inputLngLat,outputPoint,outputLngLat,deliveryTime" +
+            "enterprise,inputPoint,inputLngLat,outputPoint,outputLngLat,deliveryTime" +
             ")" +
             " VALUES (" +
-            "#{inputPoint},#{inputLngLat},#{outputPoint},#{outputLngLat},#{deliveryTime}" +
+            "#{enterprise},#{inputPoint},#{inputLngLat},#{outputPoint},#{outputLngLat},#{deliveryTime}" +
             ")")
     Integer insert(DispatchHistoryData test);
 
     @Update(" update " + table + " set "
+            + "enterprise=" + "#{enterprise},"
             + "inputPoint=" + "#{inputPoint},"
             + "inputLngLat=" + "#{inputLngLat},"
             + "outputPoint=" + "#{outputPoint},"
