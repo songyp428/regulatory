@@ -18,6 +18,9 @@ public interface EnterpriseViolationDao {
     @Select(" SELECT " + select_column + " from "+ table)
     List<EnterpriseViolationData> list();
 
+    @Select(" SELECT " + select_column + " from "+ table + " where enterPriseId = #{id}")
+    List<EnterpriseViolationData> queryListByEnterpriseId(Integer id);
+
     @Select(" SELECT " + select_column + " from "+ table + " where id = #{id}")
     EnterpriseViolationData getOne(Integer id);
 

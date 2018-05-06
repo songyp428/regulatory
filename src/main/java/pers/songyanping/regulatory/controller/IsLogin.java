@@ -13,14 +13,14 @@ public class IsLogin {
     public static Boolean isLogin(HttpServletRequest request){
         String regulatory_userName = "regulatory_userName";
         String regulatory_roleId = "regulatory_roleId";
-        String userName = "";
-        String roleId = "";
+        String userName = null;
+        String roleId = null;
         Boolean isSuccess = true;
 
         userName = CookieUtils.getCookie(request,regulatory_userName);
         roleId = CookieUtils.getCookie(request,regulatory_roleId);
 
-        if (userName.equals("") && roleId.equals("")) {
+        if (userName.equals(null) || roleId.equals(null)) {
             isSuccess = false;
         }
         return isSuccess;

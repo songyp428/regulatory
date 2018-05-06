@@ -36,6 +36,9 @@ public class EnterpriseViolationService {
         return enterpriseViolationDao.updateBaseInfo(infoOne);
     }
 
+    public List<EnterpriseViolationData> queryListByEnterpriseId(Integer id){
+        return enterpriseViolationDao.queryListByEnterpriseId(id);
+    }
     public EnterpriseViolationData getEnterpriseViolationById(Integer id){
         return enterpriseViolationDao.getOne(id);
     }

@@ -28,11 +28,11 @@ public class EnterpriseViolationData {
         return enterPriseId;
     }
 
-    public int getGrade() {
+    public Integer getGrade() {
         return grade;
     }
 
-    public void setGrade(int grade) {
+    public void setGrade(Integer grade) {
         this.grade = grade;
     }
 }

@@ -19,6 +19,10 @@ public class VehicleManagementService {
         return vehicleManagementDao.list();
     }
 
+    public List<VehicleData> queryVehicleListByEnterpriseId(Integer id){
+        return vehicleManagementDao.queryVehicleListByEnterpriseId(id);
+    }
+
     public Integer deleteVehicle(String bikeId){
         return vehicleManagementDao.delete(bikeId);
     }

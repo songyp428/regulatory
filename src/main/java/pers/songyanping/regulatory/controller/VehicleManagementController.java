@@ -22,7 +22,11 @@ public class VehicleManagementController {
 
     @RequestMapping("/queryVehicleList")
     @ResponseBody
-    public Result<List<VehicleData>> queryVehicleList(HttpServletRequest request, HttpServletResponse response) {
+    public Result<List<VehicleData>> queryVehicleList(
+            HttpServletRequest request,
+            HttpServletResponse response,
+            Integer enterpriseId
+    ) {
         List<VehicleData> list = null;
         Boolean isLogin = false;
         try {
@@ -32,7 +36,12 @@ public class VehicleManagementController {
                 response.setStatus(110);
                 return Result.<List<VehicleData>>builder().code(201).message("还没有登录，请先登录再操作哦！").data(list).totalRecords(0).build();
             } else {
-                list = vehicleManagementService.queryVehicleList();
+                if (enterpriseId.equals(-1)) {
+                    list = vehicleManagementService.queryVehicleList();
+                } else {
+                    list = vehicleManagementService.queryVehicleListByEnterpriseId(enterpriseId);
+                }
+
                 return Result.<List<VehicleData>>builder().code(200).message("成功").data(list).totalRecords(list.size()).build();
             }
         } catch (Exception e) {

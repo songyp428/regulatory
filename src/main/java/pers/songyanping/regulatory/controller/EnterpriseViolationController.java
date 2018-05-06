@@ -27,10 +27,12 @@ public class EnterpriseViolationController {
     @ResponseBody
     public Result<List<EnterpriseViolationData>> queryEnterpriseViolationList(
             HttpServletRequest request,
-            HttpServletResponse response
+            HttpServletResponse response,
+            Integer enterpriseId
     ) {
         List<EnterpriseViolationData> list = null;
         Boolean isLogin = false;
+
         try {
             isLogin = IsLogin.isLogin(request);
 
@@ -38,7 +40,13 @@ public class EnterpriseViolationController {
                 response.setStatus(110);
                 return Result.<List<EnterpriseViolationData>>builder().code(201).message("还没有登录，请先登录再操作哦！").data(list).totalRecords(0).build();
             } else {
-                list = enterpriseViolationService.queryEnterpriseViolationList();
+
+                if (enterpriseId.equals(-1)) {
+                    list = enterpriseViolationService.queryEnterpriseViolationList();
+                } else {
+                    list = enterpriseViolationService.queryListByEnterpriseId(enterpriseId);
+                }
+
                 return Result.<List<EnterpriseViolationData>>builder().code(200).message("成功").data(list).totalRecords(list.size()).build();
             }
         } catch (Exception e) {

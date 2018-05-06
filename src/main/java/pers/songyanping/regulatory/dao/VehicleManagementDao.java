@@ -16,6 +16,9 @@ public interface VehicleManagementDao {
     @Select(" SELECT " + select_column + " from "+ table)
     List<VehicleData> list();
 
+    @Select(" SELECT " + select_column + " from "+ table + " where enterprise = #{id}")
+    List<VehicleData> queryVehicleListByEnterpriseId(Integer id);
+
     @Select(" SELECT " + select_column + " from "+ table + " where bikeId = #{bikeId}")
     VehicleData getOne(String bikeId);
 
